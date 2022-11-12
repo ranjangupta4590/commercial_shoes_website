@@ -7,7 +7,8 @@ const App = () => {
   return (
     <div>
     <Hero/>
-    <Sales popularsales={popularsales} />
+    <Sales endpoint={popularsales} />
+    <Sales endpoint={toprateslaes} />
     </div>
   )
 }
