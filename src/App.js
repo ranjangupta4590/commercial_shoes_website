@@ -1,5 +1,5 @@
 import React from 'react'
-import { Featured, Footer, Hero, Navbar, Sales } from './components';
+import { Featured, Footer, Hero, Navbar, Sales,Cart } from './components';
 // import Stories from './components/Stories';
 import { popularsales, toprateslaes, sneaker, highlight } from './data/data.js';
 import {footerAPI} from './data/footer.js';
@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div>
     <Navbar/>
+    <Cart/>
       <main className='flex flex-col gap-16 relative'>
         <Hero />
         <Sales endpoint={popularsales} ifExists />
