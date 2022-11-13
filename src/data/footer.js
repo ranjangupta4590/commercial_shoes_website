@@ -28,4 +28,4 @@ const footerAPI = {
     ]
   };
   
-  export default footerAPI;
+  export {footerAPI};
