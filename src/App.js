@@ -1,14 +1,18 @@
 import React from 'react'
-import { Hero,Sales } from './components';
-import {popularsales,toprateslaes} from './data/data.js';
+import { Featured, Hero,Sales } from './components';
+import {popularsales,toprateslaes,sneaker,highlight} from './data/data.js';
 
 
 const App = () => {
   return (
     <div>
+    <main className='flex flex-col gap-16 relative'>
     <Hero/>
-    <Sales endpoint={popularsales} />
+    <Sales endpoint={popularsales} ifExists />
     <Sales endpoint={toprateslaes} />
+    <Featured endpoint={sneaker}/>
+    <Featured endpoint={highlight}/>
+    </main>
     </div>
   )
 }
