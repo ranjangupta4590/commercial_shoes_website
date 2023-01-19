@@ -8,7 +8,6 @@ const Story = {
         url: "https://sneakernews.com/2022/09/14/air-jordan-37-low/",
         like: "3/5",
         time: "11 Mins",
-        by: "Jared Ebanks",
         btn: "Read More"
       },
       {
@@ -18,7 +17,6 @@ const Story = {
         time: "41 Mins",
         like: "5/5",
         url: "https://sneakernews.com/2022/09/14/nike-zoom-freak-4-ironstone-orange-trance-cobblestone-sail-dj6149-003/",
-        by: "Michael Le",
         btn: "Read More"
       },
       {
@@ -28,7 +26,6 @@ const Story = {
         time: "2 Hours",
         url: "https://sneakernews.com/2022/09/14/nike-air-max-plus-grey-orange-black-fb3358-001/",
         like: "5/5",
-        by: "Michael Le",
         btn: "Read More"
       },
       {
@@ -38,7 +35,6 @@ const Story = {
         time: "7 Months",
         url: "https://sneakernews.com/2022/03/09/air-jordan-1-retro-high-og-yellow-toe-555088-711/",
         like: "5/5",
-        by: "Sneaker News",
         btn: "Read More"
       },
       {
@@ -48,7 +44,6 @@ const Story = {
         time: "1 Months",
         url: "https://sneakernews.com/2022/09/13/nike-zoom-gt-cut-2-officially-unveiled/",
         like: "3/5",
-        by: "Jared Ebanks",
         btn: "Read More"
       },
       {
@@ -58,7 +53,6 @@ const Story = {
         time: "25 Days",
         url: "https://sneakernews.com/2022/09/13/nike-zoom-gt-cut-2-officially-unveiled/",
         like: "3/5",
-        by: "Jared Ebanks",
         btn: "Read More"
       },
       {
@@ -68,7 +62,6 @@ const Story = {
         url: "https://sneakernews.com/2022/09/09/nike-air-force-1-black-laser-orange-fb7162-081/",
         time: "6 Days",
         like: "4/5",
-        by: "Micael Le",
         btn: "Read More"
       },
       {
@@ -78,7 +71,6 @@ const Story = {
         url: "https://sneakernews.com/2022/09/08/hello-kitty-adidas-originals-gw7166-gw7167-gw7168/",
         time: "5 Days",
         like: "4/5",
-        by: "Micael Le",
         btn: "Read More"
       },
       {
@@ -88,7 +80,6 @@ const Story = {
         url: "https://sneakernews.com/2022/09/08/nike-air-force-1-low-worldwide-black-royal-fb1840-001/",
         time: "5 Days",
         like: "4/5",
-        by: "Micael Le",
         btn: "Read More"
       },
     ],

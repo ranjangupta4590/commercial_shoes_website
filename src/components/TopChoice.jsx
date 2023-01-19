@@ -1,29 +1,26 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import '@splidejs/splide/css';
-// import { HashtagIcon, HeartIcon } from "@heroicons/react/24/solid";
-// import { ClockIcon } from "@heroicons/react/24/outline";
+import "@splidejs/splide/css";
 import Title from "./utils/Title";
-// import { truncate } from "lodash";
 
-const TopChoice = ({choice:{title,items}}) => {
-    const splideOptions = {
-        perPage: 4,
-        perMove: 1,
-        type: 'loop',
-        rewind: true,
-        keyboard: 'global',
-        gap: '1rem',
-        pagination: false,
-        padding: '2rem',
-        breakpoints: {
-          1200: { perPage: 3},
-          991: { perPage: 2},
-          768: { perPage: 2},
-          500: { perPage: 1},
-          425: { perPage: 1},
-        },
-      };
+const TopChoice = ({ choice: { title, items } }) => {
+  const splideOptions = {
+    perPage: 4,
+    perMove: 1,
+    type: "loop",
+    rewind: true,
+    keyboard: "global",
+    gap: "1rem",
+    pagination: false,
+    padding: "2rem",
+    breakpoints: {
+      1200: { perPage: 3 },
+      991: { perPage: 2 },
+      768: { perPage: 2 },
+      500: { perPage: 1 },
+      425: { perPage: 1 },
+    },
+  };
   return (
     <>
       <div className="nike-container mb-11">
@@ -40,9 +37,19 @@ const TopChoice = ({choice:{title,items}}) => {
                       className="w-full h-auto object-cover shadow-md shadow-slate-200 rounded-tl-lg rounded-tr-lg cursor-pointer hover:scale-90 transition-all duration-300"
                     />
                   </div>
-                   <div className="flex items-center justify-center px-3 w-full">
-                    <button  className="w-full bg-rose-600  text-center text-slate-100 py-1.5 mr-2 button-theme">Add To Cart</button>
-                    <button  className="w-full bg-rose-600  text-center text-slate-100 py-1.5 ml-2 button-theme">Shop Now</button>
+                  <div className="grid items-center justify-center">
+                    <h1 className=" text-xl lg:text-lg md:text-base font-medium filter drop-shadow">
+                      {val.title}
+                    </h1>
+                    <p className=" filter drop-shadow text-base md:text-sm font-normal pl-4">
+                      {val.text}
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center px-3 w-full">
+                    <button className="w-full bg-rose-600  text-center text-slate-100 py-1.5 ml-2 button-theme">
+                      Shop Now
+                    </button>
                   </div>
                 </div>
               </SplideSlide>

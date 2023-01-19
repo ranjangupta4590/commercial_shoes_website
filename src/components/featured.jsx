@@ -5,11 +5,9 @@ const Featured = ({
   endpoint: { title, heading, text, img, btn, url },
 }) => {
   return (
-    <div>
-      <div
-        className={`flex items-center justify-items-center lg:flex-col lg:justify-center nike-container ${ifExists ? 'flex-row-reverse' : 'flex-row'}`}
-      >
-        <div className="max-w-lg lg:max-w-none w-full ma:text-center grid ">
+    <div className="flex lg:justify-center items-center">
+      <div className={`flex items-center lg:flex-col lg:justify-center pl-[12rem]  nike-container ${ifExists ? 'flex-row-reverse pr-[8rem]' : 'flex-row '}`}>
+        <div className="max-w-lg lg:max-w-none w-full md:text-center grid ">
           <h1 className="text-4xl sm:text-3xl font-bold text-gradient">{heading}</h1>
           <h1 className='text-5xl lg:text-4xl md:text-3xl sm:text-2xl font-bold text-slate-900 filter drop-shadow-lg'>{title}</h1>
           <p className='xl:text-sm my-4 text-slate-900'>{text}</p>
