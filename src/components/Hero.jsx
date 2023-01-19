@@ -1,17 +1,5 @@
 import React from "react";
 import hero from "../assets/hero.png";
-import Vclips from "./utils/vclips";
-
-import clip from "../assets/video/clip.mp4";
-import vcover1 from "../assets/video/vcover1.png";
-import vcover2 from "../assets/video/vcover2.png";
-import vcover3 from "../assets/video/vcover3.png";
-
-const heroVideos =[
-      { imgsrc: vcover1, vclip: clip },
-      { imgsrc: vcover2, vclip: clip },
-      { imgsrc: vcover3, vclip: clip },
-     ]
 
 const Hero = () => {
   return (
@@ -32,16 +20,6 @@ const Hero = () => {
             Explore
           </button>
           <div></div>
-          
-          {/* <div className='grid items-center gap-5 md:gap-3 absolute top-[33vh] lg:top-[27vh] left-[11%] xl:left-0 w-auto h-auto'>
-            {heroVideos?.map((val,i)=>(
-             <Vclips
-             key={i}
-             imgsrc={val.imgsrc}
-             vclip={val.vclip}
-           />
-            ))}
-          </div> */}
           </div> 
 
         <div className="flex items-center">
