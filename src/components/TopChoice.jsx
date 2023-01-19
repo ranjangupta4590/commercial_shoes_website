@@ -28,20 +28,21 @@ const TopChoice = ({choice:{title,items}}) => {
     <>
       <div className="nike-container mb-11">
         <Title title={title} />
-        <div className="mt-7">
+        <div className="mt-8">
           <Splide options={splideOptions}>
             {items.map((val, i) => (
               <SplideSlide key={i} className="mb-0.5">
-                <div className="relative grid items-center gap-4 pb-2 rounded-lg shadow shadow-slate-200 ring-1 ring-slate-200">
-                  <div className="flex items-center justify-center">
+                <div className="relative grid items-center gap-4 pb-4 rounded-lg shadow shadow-slate-200 ring-1 ring-slate-200 ">
+                  <div className="flex items-center justify-center ">
                     <img
                       src={val.img}
-                      alt={`img/story/${i}`}
-                      className="w-full h-auto object-cover shadow-md shadow-slate-200 rounded-tl-lg rounded-tr-lg"
+                      alt={`img/choices/${i}`}
+                      className="w-full h-auto object-cover shadow-md shadow-slate-200 rounded-tl-lg rounded-tr-lg cursor-pointer hover:scale-90 transition-all duration-300"
                     />
                   </div>
-                   <div className="flex items-center justify-center px-4 w-full">
-                    <button role={"button"} className="w-full bg-rose-600 shadow-md text-center text-slate-100 py-1.5 button-theme">Shop Now</button>
+                   <div className="flex items-center justify-center px-3 w-full">
+                    <button  className="w-full bg-rose-600  text-center text-slate-100 py-1.5 mr-2 button-theme">Add To Cart</button>
+                    <button  className="w-full bg-rose-600  text-center text-slate-100 py-1.5 ml-2 button-theme">Shop Now</button>
                   </div>
                 </div>
               </SplideSlide>
