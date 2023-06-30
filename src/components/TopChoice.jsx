@@ -29,7 +29,7 @@ const TopChoice = ({ choice: { title, items } }) => {
           <Splide options={splideOptions}>
             {items.map((val, i) => (
               <SplideSlide key={i} className="mb-0.5">
-                <div className="relative grid items-center gap-4 pb-4 rounded-lg shadow shadow-slate-200 ring-1 ring-slate-200 ">
+                <div className="relative grid items-center gap-4 pb-4 rounded-lg shadow shadow-slate-200 ring-1 ring-slate-200 border-b-2">
                   <div className="flex items-center justify-center ">
                     <img
                       src={val.img}
@@ -47,7 +47,7 @@ const TopChoice = ({ choice: { title, items } }) => {
                   </div>
                   
                   <div className="flex items-center justify-center px-3 w-full">
-                    <button className="w-full bg-rose-600  text-center text-slate-100 py-1.5 ml-2 button-theme">
+                    <button className="w-full bg-rose-600  text-center text-slate-100 py-1.5  button-theme cursor-pointer hover:scale-105 transition-all duration-300">
                       Shop Now
                     </button>
                   </div>

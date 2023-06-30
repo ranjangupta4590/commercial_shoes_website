@@ -1,5 +1,5 @@
 const Story = {
-    title: "Top Stories",
+    title: "Top Tales",
     news: [
       {
         title: "Jayson Tatum Debuts",
@@ -11,7 +11,7 @@ const Story = {
         btn: "Read More"
       },
       {
-        title: "Bro’s Nike Zoom Freak 4",
+        title: "Nike Zoom Freak 4",
         text: "Arriving right time for the Fall, this upcoming take on the Zoom Freak 4 seemingly draws inspiration from Thanksgiving. Orange and brown, two staples of the holiday, are used throughout the upper, dressing the parts not bathed in shades of grey.",
         img: "https://sneakernews.com/wp-content/uploads/2022/09/nike-zoom-freak-4-ironstone-orange-trance-cobblestone-sail-dj6149-003-2.jpg?w=540&h=380&crop=1",
         time: "41 Mins",
