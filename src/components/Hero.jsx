@@ -10,7 +10,7 @@ const Hero = () => {
           <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-gray-800">
             Yesterday You Said Tomorrow,Just Do It !!
           </h1>
-          <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl  filter drop-shadow-sm text-slate-200">
+          <h1 className=" text-5xl lg:text-4xl md:text-2xl sm:text-2xl xsm:text-2xl  filter drop-shadow-sm text-slate-200">
               Revolution in Footwear with Sneekers 2.0
           </h1>
           {/* <button
