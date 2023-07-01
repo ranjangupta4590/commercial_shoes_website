@@ -47,7 +47,9 @@ const TopChoice = ({ choice: { title, items } }) => {
                   </div>
                   
                   <div className="flex items-center justify-center px-3 w-full">
-                    <button className="w-full bg-rose-600  text-center text-slate-100 py-1.5  button-theme cursor-pointer hover:scale-105 transition-all duration-300">
+                    <button
+                      type="button"
+                      className="w-full bg-rose-600  text-center text-slate-100 py-1.5  button-theme cursor-pointer hover:scale-105 transition-all duration-300">
                       Shop Now
                     </button>
                   </div>

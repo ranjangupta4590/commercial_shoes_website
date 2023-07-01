@@ -79,6 +79,7 @@ const Item = ({
               <ShoppingBagIcon className="icon-style text-slate-900" />
             </button>
             <button
+              onClick={()=>onAddToCart()}
               type="button"
               className="bg-white/90 blur-effect-theme button-theme px-2 py-1 shadow shadow-sky-200 text-sm text-black"
             >
