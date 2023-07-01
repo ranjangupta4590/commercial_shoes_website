@@ -7,8 +7,8 @@ const Hero = () => {
       <div className="bg-theme clip-path h-[85vh] lg:h-[75vh] md:h-[65vh] sm:h[55vh] w-auto absolute top-0 left-0 right-0  opacity-100 z-9"></div>
       <div className="relative opacity-100 z-20 grid item-center justify-items-center nike-container ">
         <div className="grid items-center justify-center mt-28 md:mt-24 mb-8">
-          <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-gray-800">
-            Yesterday You Said Tomorrow,Just Do It !!
+          <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-2xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-gray-800">
+            Yesterday You Said Tomorrow,Just Do It !!!
           </h1>
           <h1 className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl  filter drop-shadow-sm text-slate-200">
               Revolution in Footwear with Sneekers 2.0
