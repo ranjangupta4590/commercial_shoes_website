@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCartItems,
@@ -13,19 +13,26 @@ import CartCount from "./cart/CartCount";
 import CartEmpty from "./cart/CartEmpty";
 import CartItem from "./cart/CartItem";
 
+import Add_address from "./payment/Add_address";
+
 const Cart = () => {
   const dispatch = useDispatch();
   const ifCartState = useSelector(selectCartState);
   const cartItems = useSelector(selectCartItems);
   const totalAmount = useSelector(selectTotalAmount);
   const totalQTY = useSelector(selectTotalQTY);
-  
+
+
+  const [showModal, setShowModal] = useState(false);
+  const [address, setAddress] = useState([]);
+
+
   // console.log(cartItems)
 
   useEffect(() => {
     dispatch(setGetTotals())
-  },[cartItems, dispatch])
-  
+  }, [cartItems, dispatch])
+
   const onCartToggle = () => {
     dispatch(
       setCloseCart({
@@ -37,22 +44,32 @@ const Cart = () => {
   const onClearCartItems = () => {
     dispatch(setClearCartItems())
   }
-  
+
+  const toggle = () => {
+    setShowModal(!showModal);
+  };
+
+  const saveAddress = (addres) => {
+    let tempList = address
+    tempList.push(addres)
+    localStorage.setItem("address", JSON.stringify(tempList))
+    setAddress(tempList);
+    setShowModal(false)
+  }
+
   return (
     <>
       <div
-        className={`fixed top-0 left-0 right-0 bottom-0 blur-effect-theme duration-500 w-full h-screen opacity-100 z-[250] ${
-          ifCartState
+        className={`fixed top-0 left-0 right-0 bottom-0 blur-effect-theme duration-500 w-full h-screen opacity-100 z-[250] ${ifCartState
             ? "opacity-100 visible translate-x-0"
             : "opacity-0 invisible translate-x-8"
-        }`}
+          }`}
       >
         <div
-          className={`blur-effect-theme duration-500 h-screen max-w-xl w-full absolute right-0 ${
-            ifCartState
+          className={`blur-effect-theme duration-500 h-screen max-w-xl w-full absolute right-0 ${ifCartState
               ? "opacity-100 visible translate-x-0"
               : "opacity-0 invisible translate-x-8"
-          }`}
+            }`}
         >
           <CartCount totalQTY={totalQTY} onCartToggle={onCartToggle} onClearCartItems={onClearCartItems} />
           {cartItems?.length === 0 ? <CartEmpty onCartToggle={onCartToggle} /> : <div>
@@ -69,8 +86,13 @@ const Cart = () => {
               </div>
               <div className="grid items-center gap-2">
                 <p className="text-sm font-medium text-center">Taxes and Shipping Will Calculate At Shipping</p>
-                <button type="button" className="button-theme bg-theme-cart text-white">Check Out</button>
+                {/* <button type="button" className="button-theme bg-theme-cart text-white">Check Out</button> */}
+
+                <button onClick={toggle} data-modal-target="crud-modal" data-modal-toggle="crud-modal" className="button-theme bg-theme-cart text-white">
+                  Check Out
+                </button>
               </div>
+              <Add_address modal={showModal} toggle={toggle} save={saveAddress} pay={totalAmount} />
             </div>
 
           </div>}
