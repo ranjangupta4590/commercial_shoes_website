@@ -131,7 +131,7 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
                                                 Add Address
                                             </button> */}
                                             <button onClick={handleSave} className=" text-white items-center bg-pink-500 hover:bg-pink-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                                Amount to be pay ${pay} 
+                                                Amount to pay ${pay} 
                                             </button>
                                         </div>
 
