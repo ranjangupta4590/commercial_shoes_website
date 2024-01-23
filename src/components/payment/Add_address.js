@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react'
+import axios from 'axios';
+import logo from '../../assets/logo2.png'
 
 
-const Add_address = ({ toggle, modal, save ,pay }) => {
+const Add_address = ({ toggle, modal, save, pay }) => {
 
     const modalRef = useRef();
 
@@ -15,20 +17,69 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
     const [state, setState] = useState([]);
 
 
-    const handleSave = (e) => {
-        e.preventDefault()
+    const handleSaveAndPay = async (e) => {
+        e.preventDefault();
 
-        let addObj = {}
-        addObj["Name"] = name
-        addObj["Address1"] = address1
-        addObj["Address2"] = address2
-        addObj["Landmark"] = landmark
-        addObj["Mobile"] = mobile
-        addObj["Pin"] = pin
-        addObj["State"] = state
-        save(addObj)
+
+        // Check if all address fields are filled
+        if (!name || !mobile || !address1 || !landmark || !pin || !state) {
+            alert('Please fill in all address fields.');
+            return;
+        }
+
+        // Save address
+        let addObj = {
+            Name: name,
+            Address1: address1,
+            Address2: address2,
+            Landmark: landmark,
+            Mobile: mobile,
+            Pin: pin,
+            State: state,
+        };
+
+        save(addObj);
+
+        // Proceed to payment
+        await paymentHandler(pay);
+
+        // Close the modal
         toggle();
+    };
 
+    const API_URL = 'http://www.localhost:5000/';
+
+    const paymentHandler = async (amount) => {
+
+        const { data: { key } } = await axios.get(`${API_URL}api/getkey`)
+
+        const { data: { order } } = await axios.post(`${API_URL}api/orders`, {
+            amount
+        })
+
+        const options = {
+            key,
+            amount: order.amount,
+            currency: "INR",
+            name: "Nike Shoes",
+            description: "Nike Featured Shoes",
+            image: logo,
+            order_id: order.id,
+            callback_url: `${API_URL}api/paymentverification`,
+            prefill: {
+                name: "Ranjan Kumar",
+                email: "ranjan.kumar@example.com",
+                contact: "9999999999"
+            },
+            notes: {
+                "address": "Razorpay Corporate Office"
+            },
+            theme: {
+                "color": "#121212"
+            }
+        };
+        const razor = new window.Razorpay(options);
+        razor.open();
     }
 
 
@@ -68,7 +119,7 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
                                                 <input
                                                     value={name}
                                                     onChange={(e) => setName(e.target.value)}
-                                                    type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Name" required="" />
+                                                    type="text" name="fullName" id="fullName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Name" required />
 
                                             </div>
                                             <div className="col-span-2">
@@ -76,16 +127,16 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
                                                 <input
                                                     value={mobile}
                                                     onChange={(e) => setMobile(e.target.value)}
-                                                    type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Mobile" required="" />
+                                                    type="number"  name="mobile" id="mobile" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Mobile" required />
 
                                             </div>
 
                                             <div className="col-span-2 sm:col-span-1">
-                                                <label for="name" className="block mb-2 text-sm font-medium text-black">Address 1</label>
+                                                <label for="address1" className="block mb-2 text-sm font-medium text-black">Address 1</label>
                                                 <input
                                                     value={address1}
                                                     onChange={(e) => setAddress1(e.target.value)}
-                                                    type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="current Address" required="" />
+                                                    type="text" name="address1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="current Address" required />
 
                                             </div>
 
@@ -94,7 +145,7 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
                                                 <input
                                                     value={address2}
                                                     onChange={(e) => setAddress2(e.target.value)}
-                                                    type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="" />
+                                                    type="text" name="address2" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
 
                                             </div>
 
@@ -103,7 +154,7 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
                                                 <input
                                                     value={landmark}
                                                     onChange={(e) => setLandmark(e.target.value)}
-                                                    type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
+                                                    type="text" name="landmark" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
 
                                             </div>
                                             <div>
@@ -111,14 +162,14 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
                                                 <input
                                                     value={pin}
                                                     onChange={(e) => setPin(e.target.value)}
-                                                    type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
+                                                    type="number" maxLength={6} name="pin" id="pin" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
                                             </div>
                                             <div>
                                                 <label for="state" className="block mb-2 text-sm font-medium text-black">State</label>
                                                 <input
                                                     value={state}
                                                     onChange={(e) => setState(e.target.value)}
-                                                    type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
+                                                    type="text" name="state" id="state" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
 
                                             </div>
 
@@ -126,13 +177,17 @@ const Add_address = ({ toggle, modal, save ,pay }) => {
                                         </div>
 
                                         <div className='flex mr-3 gap-3'>
-                                            
-                                            {/* <button type='submit' onClick={handleSave} className="  text-white items-center bg-pink-500 hover:bg-pink-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                                Add Address
-                                            </button> */}
-                                            <button onClick={handleSave} className=" text-white items-center bg-pink-500 hover:bg-pink-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                                Amount to pay ${pay} 
+
+                                            <button
+                                                type='submit'
+                                                onClick={handleSaveAndPay}
+                                                className="text-white items-center bg-pink-500 hover:bg-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                                disabled={!name || !mobile || !address1 || !landmark || !pin || !state}
+                                            >Save Address & Proceed to Payment
                                             </button>
+                                            {/* <button onClick={ paymentHandler}className=" text-white items-center bg-pink-500 hover:bg-pink-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            Proceed to Payment 
+                                            </button> */}
                                         </div>
 
                                     </form>

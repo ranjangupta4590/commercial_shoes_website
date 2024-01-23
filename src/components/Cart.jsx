@@ -13,7 +13,7 @@ import CartCount from "./cart/CartCount";
 import CartEmpty from "./cart/CartEmpty";
 import CartItem from "./cart/CartItem";
 
-import Add_address from "./payment/Add_address";
+import Addaddress from "./payment/Add_address";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const Cart = () => {
             <div className="fixed bottom-0 bg-white w-full px-5 py-2 grid items-center">
               <div className="flex items-center justify-between">
                 <h1 className="text-base font-semibold uppercase">SubTotal</h1>
-                <h1 className="text-sm rounded bg-theme-cart text-slate-100 px-1 py-0.5">${totalAmount}</h1>
+                <h1 className="text-sm rounded bg-theme-cart text-slate-100 px-1 py-0.5">₹{totalAmount}</h1>
               </div>
               <div className="grid items-center gap-2">
                 <p className="text-sm font-medium text-center">Taxes and Shipping Will Calculate At Shipping</p>
@@ -92,7 +92,7 @@ const Cart = () => {
                   Check Out
                 </button>
               </div>
-              <Add_address modal={showModal} toggle={toggle} save={saveAddress} pay={totalAmount} />
+              <Addaddress modal={showModal} toggle={toggle} save={saveAddress} pay={totalAmount} />
             </div>
 
           </div>}
