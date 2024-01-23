@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Cart from './Cart';
 import Hero from './Hero';
 import TopChoice from './TopChoice';
-import Sales from './Sales';
+import Sales from './Sale';
 import choice  from '../data/choice';
 import Featured from './featured';
 import Stories from './Stories';
