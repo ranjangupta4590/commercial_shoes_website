@@ -52,9 +52,9 @@ const Add_address = ({ toggle, modal, save, pay }) => {
 
     const paymentHandler = async (amount) => {
 
-        const { data: { key } } = await axios.get(`${API_URL}api/getkey`)
+        const { data: { key } } = await axios.get(`${API_URL}/api/getkey`)
 
-        const { data: { order } } = await axios.post(`${API_URL}api/orders`, {
+        const { data: { order } } = await axios.post(`${API_URL}/api/orders`, {
             amount
         })
 
@@ -66,7 +66,7 @@ const Add_address = ({ toggle, modal, save, pay }) => {
             description: "Nike Featured Shoes",
             image: logo,
             order_id: order.id,
-            callback_url: `${API_URL}api/paymentverification`,
+            callback_url: `${API_URL}/api/paymentverification`,
             prefill: {
                 name: "Ranjan Kumar",
                 email: "ranjan.kumar@example.com",
