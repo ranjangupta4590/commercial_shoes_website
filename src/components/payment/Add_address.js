@@ -47,8 +47,8 @@ const Add_address = ({ toggle, modal, save, pay }) => {
         toggle();
     };
 
-    const API_URL = 'http://www.localhost:5000/';
-    // const API_URL = 'https://backend-e-commerce-0fvy.onrender.com';
+    // const API_URL = 'http://www.localhost:5000/';
+    const API_URL = 'https://backend-e-commerce-0fvy.onrender.com';
 
     const paymentHandler = async (amount) => {
 
